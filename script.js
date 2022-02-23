@@ -4,18 +4,45 @@ const shuffle = (arr) => {
 EndF = () => {
     window.location = "index.html"
 }
+class newWord {
+    constructor(eng, rus) {
+        this.eng = eng
+        this.rus = rus
+    }
+}
 let counter = 1
-let words =
-    [
-        ["able", "мочь, уметь"], ["ability", "умение"], ["about", "приблизительно"], ["above", "выше"], ["abroad", "за границей"],
-        ["absent", "отсутствовать"], ["absence", "отсутствие"], ["accept", "принять"], ["accident", "инцидент"], ["accompany", "сопровождать"],
-        ["accomplish", "завершить (выполнить)"], ["according to", "согласно"], ["account", "счет в банке"], ["accuse", "обвинять"], ["accustom", "приучать"],
-        ["across", "через"], ["act", "действовать"], ["action", "действие"], ["active", "активный"], ["activity", "активность"],
-        ["actor", "актёр"], ["actual", "актуальный"], ["add", "добавить"], ["addition", "сложение, добавление"], ["additional", "добавочный"],
-        ["address", "адрес"], ["admire", "восхищаться"], ["admit", "признавать, допускать"], ["adopt", "принимать"], ["advance", "делать успехи"],
-    ]
-//["", ""], ["", ""], ["", ""], ["", ""], ["", ""],
-
+let words = [
+    new newWord("able", "мочь, уметь"),
+    new newWord("ability", "возможность, умение"),
+    new newWord("about", "около, приблизительно"),
+    new newWord("above", "выше"),
+    new newWord("abroad", "за границей"),
+    new newWord("absent", "отсутствовать"),
+    new newWord("absence", "отсутствие"),
+    new newWord("accept", "принять"),
+    new newWord("accident", "инцидент, случайность"),
+    new newWord("accompany", "сопровождать"),
+    new newWord("accomplish", "завершить"),
+    new newWord("according to", "согласно с"),
+    new newWord("account", "счет в банке"),
+    new newWord("accuse", "обвинять"),
+    new newWord("accustom", "приучать"),
+    new newWord("across", "через"),
+    new newWord("act", "действовать"),
+    new newWord("action", "действие"),
+    new newWord("active", "активный"),
+    new newWord("activity", "активность"),
+    new newWord("actor", "актер"),
+    new newWord("actual", "актуальный"),
+    new newWord("add", "добавить"),
+    new newWord("addition", "прибавление, сложение"),
+    new newWord("additional", "добавочный"),
+    new newWord("address", "адрес"),
+    new newWord("admire", "восхищаться"),
+    new newWord("admit", "признавать, допускать"),
+    new newWord("adopt", "принимать"),
+    new newWord("advance", "делать успехи"),
+]
 let wordsDict = Array.from(words)
 shuffle(wordsDict)
 let score = 0
@@ -25,19 +52,18 @@ for (let i = wordsDict.length - 1; i >= 0; i --) {
     quest.classList.add(`div${i}`)
     quest.innerHTML =
         `
-                <div class="word_en">Translate the word "${b[1]}"</div>
+                <div class="word_en">Translate the word "${b.rus}"</div>
                 <input class="input inp${i}">
             `
     document.body.append(quest)
 }
 let finBut = document.createElement("div")
-finBut.innerHTML =
-    `<button onclick="getRes()">Finish!</button>`
+finBut.innerHTML = `<button onclick="getRes()">Finish!</button>`
 document.body.append(finBut)
 let getRes = () => {
     for (let i = wordsDict.length - 1; i >= 0; i --) {
         let res = document.getElementsByClassName(`inp${i}`)
-        if (res[0].value === wordsDict[i][0]) {
+        if (res[0].value === wordsDict[i].eng) {
             score ++
             res[0].classList.add("right")
             res[0].classList.remove("mistake")
@@ -55,7 +81,7 @@ let getRes = () => {
         document.body.append(endBut)
         for (let i = wordsDict.length - 1; i >= 0; i --) {
             let answer = document.createElement("span")
-            answer.innerText = `right: ${wordsDict[i][0]}`
+            answer.innerText = `right: ${wordsDict[i].eng}`
             let res = document.getElementsByClassName(`div${i}`)
             res[0].append(answer)
         }
