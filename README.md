@@ -1,6 +1,6 @@
 <h1 align="center">Little project for easier learning new words</h1>
 
-***
+
 ***Did you even think about learning a new language?*** If you'll ask "*Oh, yes! I was 
 trying to learn new language a lot of times!*", then that easy to use program was made 
 actually for you.
@@ -15,10 +15,10 @@ tests on your web-site
 ***
 <h2>DEMO of the program</h2>
 
----
+
 will be soon
 
 <h2>API</h2>
 
----
+
 will be soon
