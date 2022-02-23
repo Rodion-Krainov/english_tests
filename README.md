@@ -13,12 +13,12 @@ learn them.
 - **If you are programmer or web-site owner:** You can use our **API** to add language
 tests on your web-site
 ***
-##DEMO of the program
+<h2>DEMO of the program</h2>
 
 ---
 will be soon
 
-##API
+<h2>API</h2>
 
 ---
 will be soon
