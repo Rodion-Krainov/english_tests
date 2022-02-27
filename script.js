@@ -55,7 +55,7 @@ let getRes
 wordAddFunc = () => {
     let newW = document.getElementById("new-lang")
     let mainW = document.getElementById("main-lang")
-    let wordPlus = new newWord(newW.value.trim(), mainW.value.trim())
+    let wordPlus = new newWord(newW.value.trim(), mainW.value.trim().toLowerCase())
     words.push(wordPlus)
     newW.value = ""
     mainW.value = ""
