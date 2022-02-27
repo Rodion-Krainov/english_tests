@@ -55,7 +55,7 @@ let getRes
 wordAddFunc = () => {
     let newW = document.getElementById("new-lang")
     let mainW = document.getElementById("main-lang")
-    let wordPlus = new newWord(newW.value, mainW.value)
+    let wordPlus = new newWord(newW.value.trim(), mainW.value.trim())
     words.push(wordPlus)
     newW.value = ""
     mainW.value = ""
@@ -118,11 +118,15 @@ let wordAddPanel = document.createElement("article")
 wordAddPanel.id = "wap"
 wordAddPanel.innerHTML =
     `
-    <span>Enter your new word: </span>
-    <input id="new-lang">
-    <span>Enter the translation: </span>
-    <input id="main-lang">
+    <div>
+        <span>Enter the new word: </span>
+        <input id="new-lang">
+    </div>
+    <div>
+        <span>Enter the translation: </span>
+        <input id="main-lang">
+    </div>
     <input type="button" onclick="wordAddFunc()" class="buttonMain" value="Add a word!">
-    <input type="button" onclick="startTest()" class="buttonMain" value="Start a test!">
+    <input type="button" onclick="startTest()" class="buttonMain" value="Start a test!">  
     `
 test.append(wordAddPanel)
